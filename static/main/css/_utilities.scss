@@ -19,14 +19,24 @@ body{
 .p-1{padding: 1.5rem;}
 .p-2{padding: 2rem;}
 .p-3{padding: 3rem;}
+.my-1{margin: 1.5rem 0;}
+.my-2{margin: 2rem 0;}
+.my-3{margin: 3rem 0;}
+.m-1{margin: 1.5rem;}
+.m-2{margin: 2rem;}
+.m-3{margin: 3rem;}
 .text-center{
     text-align: center;
 }
 .flex-box{
     display: flex;
 }
+.grid-box{
+    display: grid;
+}
 a{
     text-decoration: none;
+    color: #ffffff;
 }
 p{
    margin: 0.75rem 0;
@@ -34,3 +44,30 @@ p{
 .text-center{
     text-align: center;
 }
+.heading{
+  font-size: 18px;
+  font-weight: bold;   
+}
+.bg-dark{
+  background: $dark-color;
+}
+.bg-light{
+  background: #e0ddcf;
+}
+
+.btn{
+  display: inline-block;
+  padding: 0.5rem 1.5rem;
+  border-radius: 5px;
+  &:hover{
+    cursor: pointer;
+  }
+  &-primary{
+  background: #CC7E85;
+  color: white;
+    &:hover{
+      background: #b36d74;
+    }
+  }
+}
+

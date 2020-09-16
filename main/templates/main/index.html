@@ -1,4 +1,52 @@
 {% extends "main/base.html"%}
+{% load static %}
 {% block content %}
-    text here
+    <div class="flex-box input-container my-3">
+        <label for="city-input"></label>
+        <div class="icon-boxes flex-box">
+            <img src="{% static 'main/img/ic_location_city_48px.svg' %}" alt="">
+        </div>
+        <input type="text" class="city-input" placeholder="Search for a City" id="city-input" name="city-input">
+        <div class="icon-boxes flex-box">
+            <img src="{% static 'main/img/zoom-2.svg' %}" alt="">
+        </div>
+    </div>
+
+    <div class="data-container">
+        <div class="data-boxes city-info">
+            <h2 class="text-center">City Name</h2>
+            <div class="city-info-content">
+                <p><span class="heading">Coordinates:</span> longitude, Latitude</p>
+                <p><span class="heading">Country:</span> country</p>
+                <p><span class="heading">Timezone:</span> country</p>
+            </div>
+        </div>
+        <div class="data-boxes weather-info flex-box">
+            <div class="weather-icon">
+{#                <img src="http://openweathermap.org/img/wn/{{ icon }}@2x.png" alt="" style="width: 80%; padding: 0.5rem;">#}
+                <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="" style="width: 80%; padding: 0.5rem;">
+            </div>
+            <div class="weather-info-content ">
+
+                <h2 class="text-center">Weather</h2>
+                <div class="grid-box">
+                    <div>
+                        <p><span class="heading">Temperature:</span> Cels, fait</p>
+                        <p><span class="heading">Feels Like:</span> Cels, fait</p>
+                    </div>
+
+                    <div>
+                        <p><span class="heading">Humidity:</span> Cels</p>
+                        <p><span class="heading">Pressure:</span> Cels</p>
+                        <p><span class="heading">Wind speed:</span> Cels</p>
+                    </div>
+
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+    
 {% endblock %}
