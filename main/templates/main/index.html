@@ -1,44 +1,49 @@
 {% extends "main/base.html"%}
 {% load static %}
 {% block content %}
-    <div class="flex-box input-container my-3">
+
+        <form method="post" class="flex-box input-container my-1">
         <label for="city-input"></label>
         <div class="icon-boxes flex-box">
-            <img src="{% static 'main/img/ic_location_city_48px.svg' %}" alt="">
+            <img src="{% static 'main/icons/ic_location_city_48px.svg' %}" alt="">
         </div>
-        <input type="text" class="city-input" placeholder="Search for a City" id="city-input" name="city-input">
-        <div class="icon-boxes flex-box">
-            <img src="{% static 'main/img/zoom-2.svg' %}" alt="">
-        </div>
-    </div>
+            {% csrf_token %}
+        {{ form }}
+        <button class="icon-boxes flex-box">
+            <img src="{% static 'main/icons/ic_add_48px.svg' %}" alt="">
+        </button>
+            </form>
 
+    {% for data in weather_data %}
     <div class="data-container">
         <div class="data-boxes city-info">
-            <h2 class="text-center">City Name</h2>
+            <h2 class="text-center">{{ data.city }}</h2>
             <div class="city-info-content">
-                <p><span class="heading">Coordinates:</span> longitude, Latitude</p>
-                <p><span class="heading">Country:</span> country</p>
-                <p><span class="heading">Timezone:</span> country</p>
+                <p><span class="heading">Coordinates:</span> {{ data.longitude }}, {{ data.latitude}}</p>
+                <p><span class="heading">Country:</span> {{ data.country }}</p>
+                <p><span class="heading">Timezone:</span> {{ data.timezone }}</p>
             </div>
         </div>
         <div class="data-boxes weather-info flex-box">
+            <a href="#"><div class="exit-icon">
+                <img src="{% static 'main/icons/ic_remove_circle_outline_48px.svg' %}" alt="">
+            </div></a>
             <div class="weather-icon">
-{#                <img src="http://openweathermap.org/img/wn/{{ icon }}@2x.png" alt="" style="width: 80%; padding: 0.5rem;">#}
-                <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="" style="width: 80%; padding: 0.5rem;">
+                <img src="http://openweathermap.org/img/wn/{{ data.icon }}@2x.png" alt="" style="width: 80%; padding: 0.5rem;">
             </div>
             <div class="weather-info-content ">
 
                 <h2 class="text-center">Weather</h2>
                 <div class="grid-box">
                     <div>
-                        <p><span class="heading">Temperature:</span> Cels, fait</p>
-                        <p><span class="heading">Feels Like:</span> Cels, fait</p>
+                        <p><span class="heading">Temperature:</span> {{ data.temp_c }}&#730;C, {{ data.temp_f }}&#730;F</p>
+                        <p><span class="heading">Feels Like:</span> {{ data.temp_feel_c }}&#730;C, {{ data.temp_feel_c }}&#730;F</p>
                     </div>
 
                     <div>
-                        <p><span class="heading">Humidity:</span> Cels</p>
-                        <p><span class="heading">Pressure:</span> Cels</p>
-                        <p><span class="heading">Wind speed:</span> Cels</p>
+                        <p><span class="heading">Humidity:</span> {{ data.humidity }}%</p>
+                        <p><span class="heading">Pressure:</span> {{ data.pressure }} hPa</p>
+                        <p><span class="heading">Wind speed:</span> {{ data.wind }} m/s</p>
                     </div>
 
                 </div>
@@ -48,5 +53,6 @@
             </div>
         </div>
     </div>
-    
+    {% endfor %}
+
 {% endblock %}

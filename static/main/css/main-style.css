@@ -158,6 +158,7 @@ p {
 .input-container .icon-boxes:last-child {
   cursor: pointer;
   transition: all 0.5s;
+  border: none;
 }
 .input-container .icon-boxes:last-child:hover {
   background: #454444;
@@ -189,6 +190,7 @@ p {
   display: grid;
   grid-template-columns: 1fr 3fr;
   grid-gap: 1rem;
+  margin-bottom: 0.5rem;
 }
 .data-container .data-boxes {
   background: #615e62;
@@ -202,6 +204,14 @@ p {
 .data-container .weather-info {
   align-items: center;
   justify-content: center;
+  position: relative;
+}
+.data-container .weather-info .exit-icon {
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }
 .data-container .weather-info .weather-icon {
   width: 25%;
