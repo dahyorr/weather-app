@@ -32,7 +32,6 @@ def index(request):
         database_cities.append(city.name.lower())
     template_name = 'main/index.html'
     form = CityForm()
-    print(cities)
 
     if request.method == 'POST':
         name = request.POST.get('name')

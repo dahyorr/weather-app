@@ -17,7 +17,7 @@
     <p class="text-center text-error">{{ error }}</p>
     {% endif %}
     {% for data in weather_data %}
-    <div class="data-container">
+    <div class="data-container" data-city="{{ data.city }}">
         <div class="data-boxes city-info">
             <h2 class="text-center">{{ data.city }}</h2>
             <div class="city-info-content">
@@ -27,9 +27,9 @@
             </div>
         </div>
         <div class="data-boxes weather-info flex-box">
-            <a href="#"><div class="exit-icon">
-                <img src="{% static 'main/icons/ic_remove_circle_outline_48px.svg' %}" alt="">
-            </div></a>
+            <div class="remove-icon-container">
+                <img src="{% static 'main/icons/ic_remove_circle_outline_48px.svg' %}" alt="" class="remove-icon">
+            </div>
             <div class="weather-icon">
                 <img src="http://openweathermap.org/img/wn/{{ data.icon }}@2x.png" alt="" style="width: 80%; padding: 0.5rem;">
             </div>
@@ -56,5 +56,5 @@
         </div>
     </div>
     {% endfor %}
-
+    <script src="{% static 'main/js/script.js' %}"></script>
 {% endblock %}
