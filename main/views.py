@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django.shortcuts import render
 from .forms import CityForm
 from . import models
@@ -12,26 +13,51 @@ def f_to_c(f):
 
 
 def index(request):
+    new_cook = False
     data = []
     api_key = 'a2ad70a9afeb79645fdaddfdb5af862b'
-    cities = models.City.objects.all()
+    input_error_message = ''
+    if request.COOKIES.get('cities'):
+        cities_string = request.COOKIES.get('cities')
+        cities = cities_string.split()
+    else:
+        cities_string = ""
+        cities = []
+    cities_lower = []
+    for city in cities:
+        cities_lower.append(str(city).lower())
+
+    database_cities = []
+    for city in models.City.objects.all():
+        database_cities.append(city.name.lower())
     template_name = 'main/index.html'
+    form = CityForm()
+    print(cities)
 
     if request.method == 'POST':
         name = request.POST.get('name')
         api_url = f'http://api.openweathermap.org/data/2.5/weather?q={name}&units=imperial&appid={api_key}'
         query = requests.get(api_url).json()
         if query['cod'] != '404':
-            form = CityForm(request.POST)
-            form.save()
+            name_cap = str(name).capitalize()
+            if str(name).lower() not in cities_lower:
+                cities.append(name_cap)
+                cities_string += f' {name_cap}'
+                new_cook = True
+            else:
+                new_cook = False
+                input_error_message = f'"{name}" is already added to the list'
+
+            if str(name).lower() not in database_cities:
+                form = CityForm(request.POST)
+                form.save()
+
         else:
-            error_add_message = "City is not known"
-    form = CityForm()
+            input_error_message = "City is not known"
 
     for city in cities:
         api_url = f'http://api.openweathermap.org/data/2.5/weather?q={city}&units=imperial&appid={api_key}'
         query = requests.get(api_url).json()
-        print(query['cod'])
         if query['cod'] != '404':
             data_split = {
                     'longitude': query['coord']['lon'],
@@ -50,10 +76,14 @@ def index(request):
                 }
             data.append(data_split)
 
-
     context = {
         'form': form,
         'weather_data': data,
     }
-    return render(request, template_name, context)
+    if input_error_message != '':
+        context['error'] = input_error_message
+    response = render(request, template_name, context)
+    if new_cook:
+        response.set_cookie('cities', cities_string)
+    return response
 # http://api.openweathermap.org/data/2.5/weather?q={}&units=imperial&appid={}

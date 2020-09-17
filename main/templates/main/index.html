@@ -13,7 +13,9 @@
             <img src="{% static 'main/icons/ic_add_48px.svg' %}" alt="">
         </button>
             </form>
-
+    {% if error %}
+    <p class="text-center text-error">{{ error }}</p>
+    {% endif %}
     {% for data in weather_data %}
     <div class="data-container">
         <div class="data-boxes city-info">
@@ -21,7 +23,7 @@
             <div class="city-info-content">
                 <p><span class="heading">Coordinates:</span> {{ data.longitude }}, {{ data.latitude}}</p>
                 <p><span class="heading">Country:</span> {{ data.country }}</p>
-                <p><span class="heading">Timezone:</span> {{ data.timezone }}</p>
+{#                <p><span class="heading"><Time></Time>:</span> {{ data.timezone }}</p>#}
             </div>
         </div>
         <div class="data-boxes weather-info flex-box">
