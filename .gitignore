@@ -7,4 +7,10 @@
 *.iml
 out
 gen
-!/secret_key
+__pycache__/
+db.sqlite3
+main/migrations/__pycache__/
+staticfiles/
+templates/
+venv/
+secret_key_file
