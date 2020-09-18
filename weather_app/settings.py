@@ -22,13 +22,18 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = ')s3jsynch67o2^*e(4xme7_*r@0(5yhz-ib0#o0t2e5%vm(s+o'
+secret_key_path = os.path.join(BASE_DIR, 'secret_key')
+if os.path.isfile(secret_key_path):
+    secret_key = open(secret_key_path, 'r')
+    SECRET_KEY = secret_key.read()
+elif os.environ.get('SECRET_KEY'):
+    SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-if os.environ.get('DEBUG', True):
-    DEBUG = True
-else:
+if not os.environ.get('DEBUG', True):
     DEBUG = False
+else:
+    DEBUG = True
 
 ALLOWED_HOSTS = [
     'herokuapp.com',
@@ -44,7 +49,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'main'
+    'user_visit',
+    'main',
 ]
 
 MIDDLEWARE = [
@@ -55,6 +61,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'user_visit.middleware.UserVisitMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
