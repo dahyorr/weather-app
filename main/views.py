@@ -50,6 +50,10 @@ def index(request):
             if str(name).lower() not in database_cities:
                 form = CityForm(request.POST)
                 form.save()
+            else:
+                db_item = models.City.objects.get(name=name_cap)
+                db_item.times_searched += 1
+                db_item.save()
 
         else:
             input_error_message = "City is not known"
@@ -68,8 +72,9 @@ def index(request):
                     'humidity': query['main']['humidity'],
                     'pressure': query['main']['pressure'],
                     'wind': int(round((query['wind']['speed']) / 2.237, 2)),
+                    'condition': query['weather'][0]['description'],
                     'icon': query['weather'][0]['icon'],
-                    'city': query['name'],
+                    'city': str(city.capitalize()),
                     'country': query['sys']['country'],
                     'timezone': query['timezone']
                 }

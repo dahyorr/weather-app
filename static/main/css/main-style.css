@@ -130,7 +130,7 @@ p {
 #navbar {
   height: 45px;
   background: #7d53de;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
 }
 #navbar a {

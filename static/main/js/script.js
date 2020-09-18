@@ -1,6 +1,4 @@
 let cce = getCookie('cities')
-
-console.log(cce)
 removeButtons = document.querySelectorAll(".data-container")
 removeButtons.forEach(element=>{
     element.addEventListener('click', event=>{
