@@ -20,7 +20,7 @@ const RightWeatherCard = ({data, removeData}) => {
             </div>
 
             <div className="weather-icon">
-                <img src={`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`} alt=""
+                <img src={`https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`} alt=""
                      style={{width: '80%', padding: '0.5rem'}}/>
             </div>
 
