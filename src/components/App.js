@@ -9,7 +9,9 @@ import WeatherCard from "./WeatherCard";
 class App extends React.Component{
     componentDidMount() {
         const cities = JSON.parse(localStorage.getItem('cities'))
-        cities.map((city)=>this.props.fetchData(city))
+        if (cities){
+            cities.map((city)=>this.props.fetchData(city))
+        }
     }
 
     renderError = () =>{
