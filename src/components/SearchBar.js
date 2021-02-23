@@ -29,7 +29,7 @@ class SearchBar extends React.Component {
                     <img src={cityIcon} alt=""/>
                 </div>
                 <label htmlFor="city-input"/>
-                <input type="text" name="city-input" className="city-input" placeholder="Search for a City" id="city-input"
+                <input type="text" name="city-input" className="city-input" placeholder="Enter a City" id="city-input"
                        required="" autoComplete={'off'} value={this.state.city} onChange={this.onInputChange}/>
                 <button className="icon-boxes flex-box">
                     <img src={addIcon} alt="Add"/>

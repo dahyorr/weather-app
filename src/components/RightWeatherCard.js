@@ -21,26 +21,26 @@ const RightWeatherCard = ({data, removeData}) => {
 
             <div className="weather-icon">
                 <img src={`https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`} alt=""
-                     style={{width: '80%', padding: '0.5rem'}}/>
+                     />
             </div>
 
             <div className="weather-info-content ">
-                <h2 className="text-center">Weather</h2>
+                <h2 className="text-center weather-info-content-title">Weather</h2>
 
                 <div className="grid-box">
 
                     <div>
-                        <p><span className="heading">Temperature: </span>
-                            {roundUp(fToC(data.main.temp))}&#730;C, {data.main.temp}&#730;F</p>
-                        <p><span className="heading">Feels Like: </span>
-                            {roundUp(fToC(data.main.feels_like))}&#730;C, {data.main.feels_like}&#730;F</p>
-                        <p><span className="heading">Condition:</span> {data.weather[0].description}</p>
+                        <p><span className="heading">Temperature<span className="colon">:</span> </span>
+                            {roundUp(fToC(data.main.temp))}&#730;C</p>
+                        <p><span className="heading">Feels Like<span className="colon">:</span> </span>
+                            {roundUp(fToC(data.main.feels_like))}&#730;C</p>
+                        <p><span className="heading">Condition<span className="colon">:</span></span> {data.weather[0].description}</p>
                     </div>
 
                     <div>
-                        <p><span className="heading">Humidity:</span> {data.main.humidity}%</p>
-                        <p><span className="heading">Pressure:</span> {data.main.pressure} hPa</p>
-                        <p><span className="heading">Wind speed:</span> {roundUp(data.wind.speed/2.237)} m/s</p>
+                        <p><span className="heading">Humidity<span className="colon">:</span></span> {data.main.humidity}%</p>
+                        <p><span className="heading">Pressure<span className="colon">:</span></span> {data.main.pressure}hPa</p>
+                        <p><span className="heading">Wind<span className="colon">:</span></span> {roundUp(data.wind.speed/2.237)}m/s</p>
                     </div>
 
                 </div>

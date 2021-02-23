@@ -34,6 +34,7 @@ class App extends React.Component{
                     {this.renderError()}
                     {this.renderContent()}
                 </div>
+                <div className={'footer-spacing'}> </div>
                 <Footer/>
             </div>
         )

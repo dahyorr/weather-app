@@ -1,0 +1,234 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+body {
+  font-family: "Roboto", sans-serif;
+  line-height: 1.4;
+  position: relative;
+  min-height: 100vh;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 1280px;
+  padding: 0 1.5rem;
+  margin: auto;
+  overflow: hidden;
+}
+
+.py-1 {
+  padding: 1.5rem 0;
+}
+
+.py-2 {
+  padding: 2rem 0;
+}
+
+.py-3 {
+  padding: 3rem 0;
+}
+
+.p-1 {
+  padding: 1.5rem;
+}
+
+.p-2 {
+  padding: 2rem;
+}
+
+.p-3 {
+  padding: 3rem;
+}
+
+.my-1 {
+  margin: 1.5rem 0;
+}
+
+.my-2 {
+  margin: 2rem 0;
+}
+
+.my-3 {
+  margin: 3rem 0;
+}
+
+.m-1 {
+  margin: 1.5rem;
+}
+
+.m-2 {
+  margin: 2rem;
+}
+
+.m-3 {
+  margin: 3rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.flex-box {
+  display: flex;
+}
+
+.grid-box {
+  display: grid;
+}
+
+a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+p {
+  margin: 0.75rem 0;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-error {
+  font-size: 1.4rem;
+  color: #d45050;
+  background: #565356;
+}
+
+.heading {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.bg-dark {
+  background: #474448;
+}
+
+.bg-light {
+  background: #e0ddcf;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.5rem 1.5rem;
+  border-radius: 5px;
+}
+.btn:hover {
+  cursor: pointer;
+}
+.btn-primary {
+  background: #CC7E85;
+  color: white;
+}
+.btn-primary:hover {
+  background: #b36d74;
+}
+
+.container {
+  padding: 0 0.8rem;
+}
+
+.input-container .icon-boxes {
+  width: 15%;
+}
+.input-container .icon-boxes:last-child:hover img {
+  width: 55%;
+}
+.input-container .icon-boxes:last-child img {
+  width: 55%;
+}
+
+.city-input {
+  width: 75%;
+  font-size: 1.5rem;
+}
+
+.data-container {
+  grid-template-columns: 1fr;
+  grid-gap: 0;
+}
+.data-container .data-boxes {
+  padding: 0;
+  position: relative;
+}
+.data-container .data-boxes .remove-icon-container {
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  transition: all 0.5s;
+}
+.data-container .data-boxes .remove-icon-container:hover {
+  cursor: pointer;
+  transform: scale(1.5);
+}
+.data-container .data-boxes:first-child {
+  border-radius: 15px 15px 0 0;
+}
+.data-container .data-boxes:last-child {
+  border-radius: 0 0 15px 15px;
+}
+.data-container .data-boxes .heading {
+  font-size: 0.9rem;
+}
+.data-container .city-info .city-info-content {
+  margin-top: 0.2rem;
+  line-height: 0.7rem;
+  font-size: 0.9rem;
+}
+.data-container .city-info .remove-icon-container {
+  display: block;
+}
+.data-container .weather-info .remove-icon-container {
+  display: none;
+}
+.data-container .weather-info .weather-icon {
+  width: 100px;
+  height: 100px;
+  margin-left: 1rem;
+  position: relative;
+  top: -1.85rem;
+  background-color: #736b73;
+}
+.data-container .weather-info .weather-info-content {
+  padding: 0 0.8rem 0.8rem 0.8rem;
+  width: 63%;
+}
+.data-container .weather-info .weather-info-content .grid-box {
+  margin-top: 0;
+}
+.data-container .weather-info .weather-info-content .grid-box div p {
+  margin: 0.1rem;
+}
+.data-container .weather-info .weather-info-content .grid-box div span:after {
+  content: "\a";
+  white-space: pre;
+}
+.data-container .weather-info .weather-info-content .colon {
+  display: none;
+}
+.data-container .weather-info .weather-info-content-title {
+  display: none;
+}
+
+.footer-spacing {
+  width: 100%;
+  height: 20px;
+}
+
+#footer {
+  bottom: 0;
+  position: absolute;
+}
+#footer .container {
+  display: block;
+  line-height: 0.8rem;
+  padding: 0 3rem;
+  text-align: center;
+}
+
+/*# sourceMappingURL=mobile-style.css.map */
