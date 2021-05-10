@@ -22,7 +22,7 @@ const errorReducer = (state='', action) =>{
         case 'CREATE_ERROR':
             return action.payload
         default:
-            return ''
+            return state
     }
 }
 export default combineReducers({
